@@ -23,6 +23,7 @@
   --start-conversation-button-background-outline: var(--outline-buttons-main);
   --sidebar-border-color-top_side: var(--custom-accent-transparent-half);
   --sidebar-border-color: var(--custom-accent-transparent-almostfull);
+  --top_bar-svg-icons-color: white;
 }
 
 body {
@@ -61,6 +62,7 @@ body {
 .content_c48ade {
   gap: 10px;
   margin: 10px;
+  margin-top: 0;
 }
 
 .sidebar_c48ade {
@@ -157,4 +159,16 @@ body {
 
 .scroller__99e7c {
   margin-bottom: 0;
+}
+
+.icon__9293f path {
+  fill: var(--top_bar-svg-icons-color) !important;
+}
+
+.title__85643 svg path {
+  fill: var(--top_bar-svg-icons-color) !important;
+}
+
+.title__85643 div {
+  color: var(--top_bar-svg-icons-color) !important;
 }
