@@ -19,7 +19,7 @@
 
   --outline-buttons-main: #f5a2c3;
 
-  --start-conversation-button-background-image-url: url("https://pbs.twimg.com/media/GolIIXEXEAAxOti.jpg");
+  --start-conversation-button-background-image-url: url("https://images.alphacoders.com/135/1354015.png");
   --start-conversation-button-background-overlay: linear-gradient(
     90deg,
     rgba(120, 46, 76, 0.5),
@@ -389,6 +389,35 @@ body {
   border: none !important;
   backdrop-filter: blur(20px);
   border-radius: 10px;
+}
+
+.popoverContentWithGradient_d6f39b,
+.popoverGradientWrapper_d6f39b {
+  background: none !important;
+  background-color: none !important;
+}
+
+.popoverGradientWrapper_d6f39b::before {
+  background-image: linear-gradient(transparent, transparent) !important;
+}
+
+.headerBody_d6f39b {
+  color: rgb(230, 230, 230) !important;
+}
+
+.closeButton_d6f39b .button__6af3a:hover {
+  background: var(--custom-accent-darker-transparent-half) !important;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  outline: 1px solid var(--custom-accent-lighter) !important;
+}
+
+.header_d6f39b .title_d6f39b {
+  color: rgb(255, 255, 255) !important;
+}
+
+.actionBar_d6f39b .button__6af3a {
+  background: var(--custom-accent) !important;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
 }
 
 .layer_da8173 path {
