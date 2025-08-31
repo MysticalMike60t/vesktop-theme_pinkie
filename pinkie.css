@@ -21,9 +21,13 @@
   --custom-accent-alpha-90: rgba(245, 162, 195, 0.9);
 
   --custom-accent-darker-alpha-10: rgba(120, 46, 76, 0.1);
+  --custom-accent-darker-alpha-20: rgba(120, 46, 76, 0.2);
   --custom-accent-darker-alpha-30: rgba(120, 46, 76, 0.3);
+  --custom-accent-darker-alpha-40: rgba(120, 46, 76, 0.4);
   --custom-accent-darker-alpha-50: rgba(120, 46, 76, 0.5);
+  --custom-accent-darker-alpha-60: rgba(120, 46, 76, 0.6);
   --custom-accent-darker-alpha-70: rgba(120, 46, 76, 0.7);
+  --custom-accent-darker-alpha-80: rgba(120, 46, 76, 0.8);
   --custom-accent-darker-alpha-90: rgba(120, 46, 76, 0.9);
 
   /* Text Colors */
@@ -31,6 +35,7 @@
   --text-secondary: rgb(230, 230, 230);
   --text-muted: rgb(210, 210, 210);
   --text-overflow: rgb(245, 245, 245);
+  --text-normal: rgb(255, 255, 255);
 
   /* Interaction States */
   --hover-bg: var(--custom-accent-alpha-50);
@@ -47,6 +52,14 @@
   --glass-bg: var(--custom-accent-darker-alpha-50);
   --glass-border: var(--custom-accent-lighter);
   --blur-amount: 20px;
+
+  /* Tooltip Specific */
+  --tooltip-bg: var(--custom-accent-darker-alpha-30);
+  --tooltip-border: var(--custom-accent-lighter);
+  --tooltip-text: var(--text-primary);
+  --tooltip-shadow: 0 4px 12px rgba(0, 0, 0, 0.3),
+    0 0 8px var(--custom-accent-alpha-30);
+  --tooltip--border-radius: 10px;
 
   /* Border Radius */
   --radius-small: 5px;
@@ -418,10 +431,6 @@ body {
   fill: var(--top_bar-svg-icons-color) !important;
 }
 
-.addFriend__133bf {
-  background-color: var(--custom-accent) !important;
-}
-
 .searchBar__5ec2f {
   background-color: var(--custom-accent-transparent-half) !important;
   color: var(--text-normal) !important;
@@ -456,14 +465,6 @@ body {
   fill: var(--top_bar-svg-icons-color) !important;
 }
 
-.layer_da8173 {
-  background-color: var(--glass-bg) !important;
-  outline: 1px solid var(--glass-border) !important;
-  border: none !important;
-  backdrop-filter: blur(var(--blur-amount));
-  border-radius: var(--radius-medium);
-}
-
 .popoverContentWithGradient_d6f39b,
 .popoverGradientWrapper_d6f39b {
   background: none !important;
@@ -493,7 +494,8 @@ body {
   text-shadow: var(--shadow-text);
 }
 
-.layer_da8173 path {
+/* Restore path styling but exclude tooltip layers */
+.layer_da8173:not([role="tooltip"]):not([class*="tooltip"]) path {
   fill: var(--top_bar-svg-icons-color) !important;
 }
 
@@ -601,4 +603,66 @@ body {
   background-color: var(
     --custom-accent-darker-transparent-lessthanhalf
   ) !important;
+}
+
+/* ===== TOOLTIP CUSTOMIZATION ===== */
+
+/* Target Discord tooltips using the specific tooltip classes */
+[class*="layerContainer"] [class*="tooltip"] {
+  background: var(--tooltip-bg) !important;
+  border: 0 solid transparent !important;
+  border-radius: var(--tooltip--border-radius) !important;
+  color: var(--tooltip-text) !important;
+  backdrop-filter: blur(var(--blur-amount)) !important;
+  box-shadow: 0 4px 12px var(--tooltip-shadow) !important;
+  font-weight: 500 !important;
+  text-shadow: var(--shadow-text) !important;
+  outline: 1px solid var(--tooltip-border) !important;
+}
+
+[class*="layerContainer"] [class*="tooltip"] * {
+  outline: none !important;
+  border: none !important;
+}
+
+[class*="layerContainer"] [class*="tooltip"]::after,
+[class*="layerContainer"] [class*="tooltip"]::before {
+  display: none !important;
+}
+
+/* Tooltip text content */
+[class*="tooltip"] [class*="text"] {
+  color: var(--tooltip-text) !important;
+  font-weight: 500 !important;
+  text-shadow: var(--shadow-text) !important;
+}
+
+.item__133bf {
+  background: transparent !important;
+  color: var(--text-overflow) !important;
+}
+
+.item__133bf * {
+  color: var(--text-overflow) !important;
+}
+
+.item__133bf.selected_b3f026 * {
+  color: var(--text-normal) !important;
+}
+
+.item__133bf.selected_b3f026 {
+  color: var(--text-normal) !important;
+  background: var(--custom-accent-alpha-30) !important;
+}
+
+.addFriend__133bf {
+  background-color: var(--custom-accent) !important;
+}
+
+.addFriend__133bf.selected_b3f026 {
+  background-color: var(--custom-accent-darker) !important;
+}
+
+.title__9293f {
+  color: var(--text-normal) !important;
 }
